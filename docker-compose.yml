@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  app:
+    build: .
+    image: moharamm/crud11
+    container_name: persons_crud
+    ports:
+      - '3000:3000'
+networks:
+  my-network:
+
+volumes:
+  data:
