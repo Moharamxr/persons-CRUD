@@ -61,7 +61,7 @@
   }</style>
 </head>
 <body>
-  <h1>Persons API</h1>
+  <h1 style="text-align: center;">Persons API</h1>
 
   <div class="container"><div>
     <h2>Get All Persons</h2>
@@ -145,7 +145,8 @@
       const age = document.getElementById('person-age').value;
       const gender = document.getElementById('person-gender').value;
       const email = document.getElementById('person-email').value;
-      const xhr = new XMLHttpRequest();
+      if (validation()) {
+        const xhr = new XMLHttpRequest();
       xhr.open('POST', '/persons');
       xhr.setRequestHeader('Content-Type', 'application/json');
       xhr.onload = function() {
@@ -164,6 +165,7 @@
         email: email
       });
       xhr.send(data);
+      }
     }
 
     function updatePerson() {
@@ -202,6 +204,37 @@
       };
       xhr.send();
     }
+    function validation(){
+        const name = document.getElementById('person-name').value;
+      const age = document.getElementById('person-age').value;
+      const gender = document.getElementById('person-gender').value;
+      const email = document.getElementById('person-email').value;
+
+    if (name=="") {
+        alert("Name is required");
+        return false;
+    }
+    if (age<1) {
+        alert("Age must be positve");
+        return false;
+    }
+    if (id=="") {
+        alert("ID is required");
+        return false;
+    }
+    if (email=="") {
+        alert("Email is required");
+        return false;
+    }else if (! email.includes("@")) {
+        alert("Invalid Email address");
+        return false;
+    }
+    if (gender=="") {
+        alert("Gender is required");
+        return false;
+    }
+    return true;
+}
   </script>
 </body>
 </html>
