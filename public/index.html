@@ -145,8 +145,8 @@
       const age = document.getElementById('person-age').value;
       const gender = document.getElementById('person-gender').value;
       const email = document.getElementById('person-email').value;
-      if (validation()) {
-        const xhr = new XMLHttpRequest();
+      
+      const xhr = new XMLHttpRequest();
       xhr.open('POST', '/persons');
       xhr.setRequestHeader('Content-Type', 'application/json');
       xhr.onload = function() {
@@ -166,7 +166,7 @@
       });
       xhr.send(data);
       }
-    }
+    
 
     function updatePerson() {
       const id = document.getElementById('update-id').value;
@@ -204,37 +204,7 @@
       };
       xhr.send();
     }
-    function validation(){
-        const name = document.getElementById('person-name').value;
-      const age = document.getElementById('person-age').value;
-      const gender = document.getElementById('person-gender').value;
-      const email = document.getElementById('person-email').value;
-
-    if (name=="") {
-        alert("Name is required");
-        return false;
-    }
-    if (age<1) {
-        alert("Age must be positve");
-        return false;
-    }
-    if (id=="") {
-        alert("ID is required");
-        return false;
-    }
-    if (email=="") {
-        alert("Email is required");
-        return false;
-    }else if (! email.includes("@")) {
-        alert("Invalid Email address");
-        return false;
-    }
-    if (gender=="") {
-        alert("Gender is required");
-        return false;
-    }
-    return true;
-}
+    
   </script>
 </body>
 </html>
