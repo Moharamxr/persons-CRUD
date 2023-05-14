@@ -7,6 +7,8 @@ services:
     container_name: persons_crud
     ports:
       - '3000:3000'
+    environment:
+      - NODE_ENV=production
 networks:
   my-network:
 
